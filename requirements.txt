@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+httpx>=0.27            # used by fastapi.testclient
+
+# Only needed to create Checkout Sessions against the live API. The webhook
+# path, the unlock logic and the whole test suite run without it - signature
+# verification is an HMAC, not a service call.
+stripe>=8.0
