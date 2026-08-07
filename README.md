@@ -287,11 +287,19 @@ tests/
   test_webhook.py      end to end over HTTP, every path above
 ```
 
+The signature and store modules on their own — 27 of the 43, named so the
+list reads as what it is, an inventory of ways the integration can be wrong:
+
+```bash
+python -m unittest tests.test_signature tests.test_store -v
+```
+
 ![The signature and store tests](screenshots/01.png)
 
-Every one of those names is a way the integration can be wrong. The two
-`OfficialLibraryAgreementTests` run this module and `stripe-python` against
-the same inputs, so an accepted header here is an accepted header there.
+The two `OfficialLibraryAgreementTests` run this module and `stripe-python`
+against the same inputs, so an accepted header here is an accepted header
+there. The remaining 16 are `test_webhook.py`, which drives the same paths end
+to end over HTTP.
 
 ```
 Ran 43 tests in 0.546s
